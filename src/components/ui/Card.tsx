@@ -5,11 +5,6 @@ type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export function Card({ className = "", ...props }: DivProps) {
   return (
     <div
-      style={{
-        backgroundImage: "url(/fondocardproducto.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
       className={`
         rounded-2xl
         shadow-lg shadow-pink-500/30

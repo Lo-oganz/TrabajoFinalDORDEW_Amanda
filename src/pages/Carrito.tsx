@@ -1,11 +1,18 @@
 // src/pages/Carrito.tsx
 import { useCart } from "../context/CartContext";
-import { Card, CardTitle, CardContent } from "../components/ui/Card";
+import { Card, CardContent } from "../components/ui/Card";
+import { useState } from "react";
 
 type Props = { fmt: (n: number) => string };
 
 export default function CarritoPage({ fmt }: Props) {
   const { items, inc, dec, remove, clear, total } = useCart();
+  const [compraRealizada, setCompraRealizada] = useState(false);
+
+  const handleCompra = () => {
+    clear(); // vaciar carrito
+    setCompraRealizada(true); // mostrar mensaje
+  };
 
   return (
     <section className="space-y-6">
@@ -38,10 +45,28 @@ export default function CarritoPage({ fmt }: Props) {
 
             <div className="flex gap-2">
               <button className="rounded bg-slate-700 px-3 py-2 text-sm" onClick={clear}>Vaciar</button>
-              <button className="rounded bg-emerald-600 px-3 py-2 text-sm hover:bg-emerald-700">Confirmar compra</button>
+              <button
+                className="rounded bg-emerald-600 px-3 py-2 text-sm hover:bg-emerald-700"
+                onClick={handleCompra}
+              >
+                Confirmar compra
+              </button>
             </div>
           </CardContent>
         </Card>
+      )}
+
+      {/* Mensaje de compra realizada */}
+      {compraRealizada && (
+        <h3
+          className="text-3xl font-extrabold text-center px-2 mt-4 drop-shadow-lg uppercase"
+          style={{
+            color: "#ff0084", // rosa chillón
+            WebkitTextStroke: "0.6px black",
+          }}
+        >
+          ¡Compra realizada correctamente!
+        </h3>
       )}
     </section>
   );
