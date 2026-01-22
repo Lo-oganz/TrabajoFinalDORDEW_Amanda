@@ -6,18 +6,9 @@ import Footer from "./components/Footer";
 
 // páginas
 import CatalogoPage from "./pages/Catalogo";
-import HabitacionesPage from "./pages/Habitaciones";
-import SpaPage from "./pages/Spa";
-import ContactoPage from "./pages/Contacto";
+import GaleriaPage from "./pages/Galeria";
+import InfoPage from "./pages/Curiosidades";
 import CarritoPage from "./pages/Carrito";
-
-// páginas nuevas (placeholder)
-function GaleriaPage() {
-  return <div className="text-center text-lg text-slate-200" >Página Galería (a implementar)</div>;
-}
-function InfoPage() {
-  return <div className="text-center text-lg text-slate-200">Página Curiosidades (a implementar)</div>;
-}
 
 // contexto carrito + tipos
 import { useCart, type Product } from "./context/CartContext";
@@ -26,32 +17,20 @@ import { useCart, type Product } from "./context/CartContext";
 const fmt = (n: number) =>
   new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(n);
 
-// Actualizamos Page para incluir nuevas rutas
-type Page =
-  | "/catalogo"
-  | "/galeria"
-  | "/info"
-  | "/habitaciones"
-  | "/spa"
-  | "/contacto"
-  | "/carrito";
+// Rutas disponibles
+type Page = "/catalogo" | "/galeria" | "/info" | "/carrito";
 
+// Leer la ruta actual
 function readPathname(): Page {
   const p = location.pathname.toLowerCase();
-  if (
-    p === "/galeria" ||
-    p === "/info" ||
-    p === "/habitaciones" ||
-    p === "/spa" ||
-    p === "/contacto" ||
-    p === "/carrito"
-  ) return p;
+  if (p === "/galeria" || p === "/info" || p === "/carrito") return p;
   return "/catalogo";
 }
 
 export default function App() {
   const [page, setPage] = useState<Page>(readPathname());
 
+  // manejo de navegación y clicks en enlaces internos
   useEffect(() => {
     const onNav = () => setPage(readPathname());
     window.addEventListener("popstate", onNav);
@@ -73,6 +52,7 @@ export default function App() {
       window.removeEventListener("click", onClick);
     };
   }, []);
+
 
 
   // Todas las figuritas que se van a vender (Por ahora)
@@ -219,8 +199,7 @@ const [products] = useState<Product[]>([
   },
 ]);
 
-
- // Orden catálogo
+ // Orden del catálogo
   type SortBy = "price" | "name" | "tag";
   type SortDir = "asc" | "desc";
   const [sortBy, setSortBy] = useState<SortBy>("price");
@@ -258,9 +237,6 @@ const [products] = useState<Product[]>([
         )}
         {page === "/galeria" && <GaleriaPage />}
         {page === "/info" && <InfoPage />}
-        {page === "/habitaciones" && <HabitacionesPage />}
-        {page === "/spa" && <SpaPage />}
-        {page === "/contacto" && <ContactoPage />}
         {page === "/carrito" && <CarritoPage fmt={fmt} />}
       </main>
 

@@ -32,31 +32,7 @@ export default function CatalogoPage({
       {/* Título sin botón extra de carrito */}
       <h1 className="text-2xl font-bold">Vocaloid & UTAU — Catálogo de Figuras</h1>
 
-      {/* Ordenación */}
-      <SortBar
-        sortBy={sortBy}
-        sortDir={sortDir}
-        onChange={({ sortBy, sortDir }) => {
-          setSortBy(sortBy);
-          setSortDir(sortDir);
-        }}
-      />
-
-      {/* Resumen superior */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Resumen</CardTitle>
-        </CardHeader>
-        <CardContent className="flex items-center justify-between">
-          <p className="text-slate-300">
-            Figuras en carrito: <span className="font-medium text-slate-100">{count}</span>
-          </p>
-
-          <p className="text-slate-300">
-            Total: <span className="font-semibold text-slate-100">{cartTotal}</span>
-          </p>
-        </CardContent>
-      </Card>
+      
 
       {/* Grid de productos */}
       <section className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6">

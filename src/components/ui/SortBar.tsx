@@ -1,5 +1,4 @@
 // src/components/SortBar.tsx
-import React from "react";
 
 type SortBy = "price" | "name" | "tag";
 type SortDir = "asc" | "desc";

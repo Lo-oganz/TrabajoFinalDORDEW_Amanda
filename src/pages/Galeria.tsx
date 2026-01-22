@@ -1,10 +1,26 @@
 // src/pages/Habitaciones.tsx
-import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/Card";
+import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/Card.tsx";
+import { useState } from "react";
+import SortBar from "../components/ui/SortBar.tsx";
 
 export default function HabitacionesPage() {
+  // Estados para la ordenación
+  const [sortBy, setSortBy] = useState<"price" | "name" | "tag">("price");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+
   return (
     <section className="space-y-6">
       <h2 className="text-2xl font-semibold">Habitaciones</h2>
+
+      {/* Ordenación */}
+      <SortBar
+        sortBy={sortBy}
+        sortDir={sortDir}
+        onChange={({ sortBy, sortDir }) => {
+          setSortBy(sortBy);
+          setSortDir(sortDir);
+        }}
+      />
 
       {/* Información general */}
       <Card>
