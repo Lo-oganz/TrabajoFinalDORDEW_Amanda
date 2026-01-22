@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { Card, CardHeader, CardTitle, CardContent } from "./Card";
+import { Card, CardTitle, CardContent } from "./Card";
 
 
 
@@ -44,15 +44,6 @@ export default function Cards({ product, onAddToCart, onBuyNow }: CardsProps) {
         </div>
       )}
 
-      <CardHeader className="flex items-start justify-between">
-        <CardTitle className="text-xl">{product.name}</CardTitle>
-        {product.tag && (
-          <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-300">
-            {product.tag}
-          </span>
-        )}
-      </CardHeader>
-
       <CardContent className="space-y-3">
         <p className="text-slate-300">{product.description}</p>
 
@@ -63,13 +54,6 @@ export default function Cards({ product, onAddToCart, onBuyNow }: CardsProps) {
         <div className="flex gap-2 pt-2">
           <Button
             variant="buy"
-            onClick={() => onBuyNow?.(product)}
-            leadingIcon={<span aria-hidden>🛒</span>}
-          >
-            Comprar figura
-          </Button>
-          <Button
-            variant="outline"
             onClick={() => onAddToCart?.(product)}
             leadingIcon={<span aria-hidden>➕</span>}
           >

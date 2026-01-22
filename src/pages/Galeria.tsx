@@ -1,5 +1,5 @@
 // src/pages/Habitaciones.tsx
-import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/Card.tsx";
+import { Card, CardTitle, CardContent } from "../components/ui/Card.tsx";
 import { useState } from "react";
 import SortBar from "../components/ui/SortBar.tsx";
 
@@ -24,9 +24,6 @@ export default function HabitacionesPage() {
 
       {/* Información general */}
       <Card>
-        <CardHeader>
-          <CardTitle>Información general</CardTitle>
-        </CardHeader>
         <CardContent className="text-slate-300 space-y-2">
           <p>
             Nuestro hotel dispone de una amplia variedad de habitaciones diseñadas para
@@ -49,9 +46,6 @@ export default function HabitacionesPage() {
             alt="Suite Deluxe Vista Mar"
             className="h-40 w-full object-cover"
           />
-          <CardHeader>
-            <CardTitle>Suite Deluxe Vista Mar</CardTitle>
-          </CardHeader>
           <CardContent className="text-slate-300">
             <p>
               Amplia habitación con cama king size, terraza privada y vistas panorámicas al mar.
@@ -67,9 +61,6 @@ export default function HabitacionesPage() {
             alt="Habitación Doble"
             className="h-40 w-full object-cover"
           />
-          <CardHeader>
-            <CardTitle>Habitación Doble</CardTitle>
-          </CardHeader>
           <CardContent className="text-slate-300">
             <p>
               Perfecta para parejas o amigos, equipada con dos camas individuales o una doble.
@@ -85,9 +76,6 @@ export default function HabitacionesPage() {
             alt="Habitación Familiar"
             className="h-40 w-full object-cover"
           />
-          <CardHeader>
-            <CardTitle>Habitación Familiar</CardTitle>
-          </CardHeader>
           <CardContent className="text-slate-300">
             <p>
               Espaciosa habitación para familias, con capacidad para cuatro personas. Dispone de

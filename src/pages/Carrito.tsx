@@ -1,6 +1,6 @@
 // src/pages/Carrito.tsx
 import { useCart } from "../context/CartContext";
-import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/Card";
+import { Card, CardTitle, CardContent } from "../components/ui/Card";
 
 type Props = { fmt: (n: number) => string };
 
@@ -15,7 +15,6 @@ export default function CarritoPage({ fmt }: Props) {
         <Card><CardContent>Tu carrito está vacío.</CardContent></Card>
       ) : (
         <Card>
-          <CardHeader><CardTitle>Resumen</CardTitle></CardHeader>
           <CardContent className="space-y-4">
             {items.map(({ product, qty }) => (
               <div key={product.id} className="flex items-center justify-between gap-3 border-b border-white/10 pb-3">

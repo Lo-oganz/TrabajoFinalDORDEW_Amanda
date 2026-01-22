@@ -1,11 +1,47 @@
-import { NavLink, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { FaShoppingCart } from "react-icons/fa";
 
 export default function Header() {
   const { count } = useCart();
+  const location = useLocation();
 
-  const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `hover:underline ${isActive ? "text-white" : "text-slate-300"}`;
+  // Botón de navegación
+  const NavButton = ({
+    to,
+    children,
+  }: {
+    to: string;
+    children: React.ReactNode;
+  }) => {
+    const isActive = location.pathname === to;
+
+    return (
+      <Link to={to}>
+        <button
+          className={`
+            relative
+            px-6 py-2
+            font-bold
+            text-white
+            rounded-xl
+            border-4 border-black
+            shadow-lg
+            transition-transform duration-200
+            transform hover:scale-105 active:scale-95
+            ${isActive ? "ring-2 ring-offset-2 ring-pink-400" : ""}
+          `}
+          style={{
+            backgroundImage: "url(/buttonheader.png)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <span className="relative z-10">{children}</span>
+        </button>
+      </Link>
+    );
+  };
 
   return (
     <header
@@ -16,26 +52,42 @@ export default function Header() {
         backgroundPosition: 'center',
       }}
     >
-      <div className="mx-auto max-w-6xl h-20 flex items-center justify-between">
-        {/* Logo más a la izquierda */}
-        <Link to="/catalogo" className="-ml-6 h-18"> 
+      <div className="mx-auto max-w-6xl h-20 flex items-center justify-between px-4">
+        {/* Logo */}
+        <Link to="/catalogo" className="h-18 -ml-6">
           <img src="/logo.png" alt="Vocaloid Store" className="h-full object-contain" />
         </Link>
 
-        <nav className="flex gap-6 text-sm">
-          <NavLink to="/catalogo" className={linkClass}>Principal</NavLink>
-          <NavLink to="/galeria" className={linkClass}>Galería</NavLink>
-          <NavLink to="/info" className={linkClass}>Curiosidades</NavLink>
+        {/* Navegación */}
+        <nav className="flex gap-4">
+          <NavButton to="/galeria">Home</NavButton>
+          <NavButton to="/catalogo">Catalog</NavButton>
         </nav>
 
-        <Link
-          to="/carrito"
-          className="px-4 py-1 scene-border scene-glow hover:bg-[var(--pink-main)] hover:text-black"
-        >
-          Carrito ({count})
+        {/* Carrito solo con icono */}
+        <Link to="/carrito">
+          <button
+            className="
+              relative
+              p-3
+              rounded-full
+              bg-black
+              text-pink-400
+              shadow-[0_0_15px_rgba(255,0,128,0.8)]
+              hover:shadow-[0_0_25px_rgba(255,0,128,1)]
+              transition-all duration-200
+              transform hover:scale-110 active:scale-95
+            "
+          >
+            <FaShoppingCart className="text-xl" />
+            {count > 0 && (
+              <span className="absolute -top-1 -right-1 bg-pink-500 text-black text-xs w-5 h-5 rounded-full grid place-items-center font-bold">
+                {count}
+              </span>
+            )}
+          </button>
         </Link>
       </div>
-
     </header>
   );
 }
