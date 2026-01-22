@@ -1,14 +1,23 @@
 import Button from "./Button";
 import { Card, CardHeader, CardTitle, CardContent } from "./Card";
 
+
+
 export type Product = {
   id: string;
   name: string;
+  characterType: "Vocaloid" | "UTAU";
+  company?: string;
+  voiceProvider?: string;
+  group?: string;
   description: string;
+  shortBio: string;
+  famousSongs: string[];
   price: number;
   image?: string;
   tag?: string;
 };
+
 
 type CardsProps = {
   product: Product;
@@ -21,7 +30,7 @@ const fmt = (n: number) =>
 
 export default function Cards({ product, onAddToCart, onBuyNow }: CardsProps) {
   return (
-    <Card className="overflow-hidden">
+    <Card className="min-w-[260px] snap-center">
       {product.image ? (
         <img
           src={product.image}
@@ -57,14 +66,14 @@ export default function Cards({ product, onAddToCart, onBuyNow }: CardsProps) {
             onClick={() => onBuyNow?.(product)}
             leadingIcon={<span aria-hidden>🛒</span>}
           >
-            Comprar ahora
+            Comprar figura
           </Button>
           <Button
             variant="outline"
             onClick={() => onAddToCart?.(product)}
             leadingIcon={<span aria-hidden>➕</span>}
           >
-            Añadir
+            Añadir al carrito
           </Button>
         </div>
       </CardContent>

@@ -29,6 +29,7 @@ export default function SortBar({ sortBy, sortDir, onChange }: SortBarProps) {
           <option value="price">Precio</option>
           <option value="name">Nombre</option>
           <option value="tag">Categoría</option>
+
         </select>
       </div>
 

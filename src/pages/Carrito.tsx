@@ -39,7 +39,7 @@ export default function CarritoPage({ fmt }: Props) {
 
             <div className="flex gap-2">
               <button className="rounded bg-slate-700 px-3 py-2 text-sm" onClick={clear}>Vaciar</button>
-              <button className="rounded bg-emerald-600 px-3 py-2 text-sm hover:bg-emerald-700">Confirmar reserva</button>
+              <button className="rounded bg-emerald-600 px-3 py-2 text-sm hover:bg-emerald-700">Confirmar compra</button>
             </div>
           </CardContent>
         </Card>

@@ -30,7 +30,7 @@ export default function CatalogoPage({
   return (
     <section id="catalogo" className="space-y-6">
       {/* Título sin botón extra de carrito */}
-      <h1 className="text-2xl font-bold">Hotel — Catálogo</h1>
+      <h1 className="text-2xl font-bold">Vocaloid & UTAU — Catálogo de Figuras</h1>
 
       {/* Ordenación */}
       <SortBar
@@ -49,8 +49,9 @@ export default function CatalogoPage({
         </CardHeader>
         <CardContent className="flex items-center justify-between">
           <p className="text-slate-300">
-            Artículos: <span className="font-medium text-slate-100">{count}</span>
+            Figuras en carrito: <span className="font-medium text-slate-100">{count}</span>
           </p>
+
           <p className="text-slate-300">
             Total: <span className="font-semibold text-slate-100">{cartTotal}</span>
           </p>
@@ -58,7 +59,7 @@ export default function CatalogoPage({
       </Card>
 
       {/* Grid de productos */}
-      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6">
         {products.map((p) => (
           <Cards
             key={p.id}

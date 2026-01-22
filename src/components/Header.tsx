@@ -8,22 +8,34 @@ export default function Header() {
     `hover:underline ${isActive ? "text-white" : "text-slate-300"}`;
 
   return (
-    <header className="sticky top-0 z-20 border-b border-white/10 bg-slate-900/80 backdrop-blur">
-      <div className="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
-        <Link to="/catalogo" className="font-bold">Hotel G201</Link>
+    <header
+      className="sticky top-0 z-20"
+      style={{
+        backgroundImage: 'url(/topbar.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="mx-auto max-w-6xl h-20 flex items-center justify-between">
+        {/* Logo más a la izquierda */}
+        <Link to="/catalogo" className="-ml-6 h-18"> 
+          <img src="/logo.png" alt="Vocaloid Store" className="h-full object-contain" />
+        </Link>
+
         <nav className="flex gap-6 text-sm">
-          <NavLink to="/catalogo" className={linkClass}>Catálogo</NavLink>
-          <NavLink to="/habitaciones" className={linkClass}>Habitaciones</NavLink>
-          <NavLink to="/spa" className={linkClass}>Spa</NavLink>
-          <NavLink to="/contacto" className={linkClass}>Contacto</NavLink>
+          <NavLink to="/catalogo" className={linkClass}>Principal</NavLink>
+          <NavLink to="/galeria" className={linkClass}>Galería</NavLink>
+          <NavLink to="/info" className={linkClass}>Curiosidades</NavLink>
         </nav>
+
         <Link
           to="/carrito"
-          className="text-sm rounded-lg px-3 py-1 bg-emerald-600 hover:bg-emerald-700"
+          className="px-4 py-1 scene-border scene-glow hover:bg-[var(--pink-main)] hover:text-black"
         >
           Carrito ({count})
         </Link>
       </div>
+
     </header>
   );
 }

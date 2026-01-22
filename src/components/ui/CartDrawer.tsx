@@ -1,5 +1,4 @@
-import React from "react";
-import type { Product } from "./ui/Cards";
+import type { Product } from "./Cards.tsx";
 
 export type CartItem = { product: Product; qty: number };
 

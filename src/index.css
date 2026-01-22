@@ -3,3 +3,32 @@
 
 /* opcional: estilos propios */
 html, body, #root { height: 100%; }
+
+
+:root {
+  --pink-main: #FF008C;
+  --pink-neon: #FA66B7;
+  --bg-dark: #0a0a0a;
+  --text-light: #ffe6fb;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.scene-glow {
+  box-shadow:
+    0 0 10px var(--pink-neon),
+    0 0 20px var(--pink-main);
+}
+
+.scene-border {
+  border: 2px solid var(--pink-main);
+}
+
+.scene-text {
+  color: var(--pink-main);
+  text-shadow: 0 0 8px var(--pink-neon);
+}
+
