@@ -5,13 +5,17 @@ type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export function Card({ className = "", ...props }: DivProps) {
   return (
     <div
+      style={{
+        backgroundImage: "url(/fondocardproducto.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
       className={`
         rounded-2xl
-        bg-gradient-to-br from-pink-500/30 via-purple-500/20 to-blue-500/20
         shadow-lg shadow-pink-500/30
         backdrop-blur-md
         transform transition-transform transition-shadow duration-300
-        hover:scale-103
+        hover:scale-[1.03]
         hover:shadow-xl hover:shadow-pink-400/40
         cursor-pointer
         overflow-hidden
@@ -38,14 +42,18 @@ export function CardTitle({ className = "", ...props }: DivProps) {
   return (
     <h2
       className={`
-        text-lg sm:text-xl font-extrabold text-white text-center px-3
-        drop-shadow-md
+        text-2xl sm:text-3xl font-extrabold text-center px-3 mt-2 drop-shadow-lg uppercase
         ${className}
       `}
+      style={{
+        color: "#d00072",
+        WebkitTextStroke: "0.5px white",
+      }}
       {...props}
     />
   );
 }
+
 
 export function CardContent({ className = "", ...props }: DivProps) {
   return (

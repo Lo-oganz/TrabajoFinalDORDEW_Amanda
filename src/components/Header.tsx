@@ -54,9 +54,27 @@ export default function Header() {
     >
       <div className="mx-auto max-w-6xl h-20 flex items-center justify-between px-4">
         {/* Logo */}
-        <Link to="/catalogo" className="h-18 -ml-6">
-          <img src="/logo.png" alt="Vocaloid Store" className="h-full object-contain" />
+        <Link to="/home" className="-ml-6">
+          <div
+            className="
+              h-16 w-16
+              rounded-full
+              border-10 border-pink-400
+              shadow-[0_0_20px_rgba(255,20,147,0.9)]
+              overflow-hidden
+              bg-black
+              transition-transform duration-200
+              hover:scale-110
+            "
+          >
+            <img
+              src="/logo.png"
+              alt="Store Logo"
+              className="h-full w-full object-contain"
+            />
+          </div>
         </Link>
+
 
         {/* Navegación */}
         <nav className="flex gap-4">

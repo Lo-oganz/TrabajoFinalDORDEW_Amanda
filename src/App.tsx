@@ -12,9 +12,6 @@ import CarritoPage from "./pages/Carrito";
 // productos
 import { products } from "./data/product.tsx";
 
-// contexto carrito + tipos
-import { useCart, type Product } from "./context/CartContext";
-
 // util moneda
 const fmt = (n: number) =>
   new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(n);
@@ -31,9 +28,6 @@ function readPathname(): Page {
 
 export default function App() {
   const [page, setPage] = useState<Page>(readPathname());
-
-  // Carrito
-  const { total } = useCart();
 
   // manejo de navegación y clicks en enlaces internos
   useEffect(() => {
@@ -64,11 +58,9 @@ export default function App() {
 
       <main className="mx-auto max-w-6xl p-6">
         {page === "/catalogo" && (
-          <CatalogoPage
-            products={products}
-            cartTotal={fmt(total)}
-          />
+          <CatalogoPage products={products} />
         )}
+
 
         {page === "/home" && <HomePage />}
         {page === "/carrito" && <CarritoPage fmt={fmt} />}
