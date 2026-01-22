@@ -1,22 +1,25 @@
 import React from "react";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "buy"; // Solo dejamos el botón de comprar
+  variant?: "buy";
   size?: "sm" | "md" | "lg";
   leadingIcon?: React.ReactNode;
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none shadow-lg";
+  "inline-flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none shadow-lg";
 
 const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
   buy: `
-    bg-gradient-to-br from-emerald-400 to-emerald-600
-    text-white
-    hover:from-emerald-500 hover:to-emerald-700
-    focus:ring-emerald-500
+    bg-black
+    text-pink-400
+    border-2 border-pink-500
+    shadow-[0_0_12px_rgba(255,0,128,0.7)]
+    hover:text-black
+    hover:bg-pink-500
+    hover:shadow-[0_0_22px_rgba(255,0,128,1)]
+    focus:ring-pink-500
     transform hover:scale-105 active:scale-95
-    shadow-emerald-400/50
   `,
 };
 

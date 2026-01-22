@@ -23,7 +23,7 @@ export default function Header() {
             relative
             px-6 py-2
             font-bold
-            text-white
+            text-black
             rounded-xl
             border-4 border-black
             shadow-lg
@@ -60,7 +60,7 @@ export default function Header() {
 
         {/* Navegación */}
         <nav className="flex gap-4">
-          <NavButton to="/galeria">Home</NavButton>
+          <NavButton to="/home">Home</NavButton>
           <NavButton to="/catalogo">Catalog</NavButton>
         </nav>
 
@@ -72,7 +72,6 @@ export default function Header() {
               p-3
               rounded-full
               bg-black
-              text-pink-400
               shadow-[0_0_15px_rgba(255,0,128,0.8)]
               hover:shadow-[0_0_25px_rgba(255,0,128,1)]
               transition-all duration-200

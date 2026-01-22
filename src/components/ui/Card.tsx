@@ -8,10 +8,11 @@ export function Card({ className = "", ...props }: DivProps) {
       className={`
         rounded-2xl
         bg-gradient-to-br from-pink-500/30 via-purple-500/20 to-blue-500/20
-        shadow-lg shadow-pink-500/50
+        shadow-lg shadow-pink-500/30
         backdrop-blur-md
-        transform transition-transform duration-300 hover:scale-105 hover:rotate-1
-        hover:shadow-2xl hover:shadow-pink-500/70
+        transform transition-transform transition-shadow duration-300
+        hover:scale-103
+        hover:shadow-xl hover:shadow-pink-400/40
         cursor-pointer
         overflow-hidden
         ${className}
@@ -21,15 +22,17 @@ export function Card({ className = "", ...props }: DivProps) {
   );
 }
 
+
 export function CardImage({ src, alt = "", className = "" }: { src: string; alt?: string; className?: string }) {
   return (
     <img
       src={src}
       alt={alt}
-      className={`w-full object-cover rounded-t-2xl ${className}`}
+      className={`w-full h-[200px] object-cover rounded-t-2xl ${className}`}
     />
   );
 }
+
 
 export function CardTitle({ className = "", ...props }: DivProps) {
   return (
