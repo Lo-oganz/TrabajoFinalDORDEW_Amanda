@@ -42,8 +42,8 @@ export function StyleCardTitle({ className = "", ...props }: DivProps) {
     <h3
       className={`text-3xl font-extrabold text-center px-2 mt-2 drop-shadow-lg uppercase ${className}`}
       style={{
-        color: "#ff0084", // pink-500
-        WebkitTextStroke: "0.6px black", // borde negro
+        color: "#ff0084",
+        WebkitTextStroke: "0.6px black",
       }}
       {...props}
     />

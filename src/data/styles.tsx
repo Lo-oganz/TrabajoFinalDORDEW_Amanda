@@ -1,11 +1,10 @@
-// src/data/styles.ts
 export type Style = {
   id: string;
   name: string;
   description: string;
   shortBio: string;
   tag?: string;
-  image?: string; // opcional, luego se pueden añadir imágenes
+  image?: string;
 };
 
 export const styles: Style[] = [

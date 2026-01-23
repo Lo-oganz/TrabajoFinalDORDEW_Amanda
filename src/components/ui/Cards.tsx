@@ -1,49 +1,30 @@
 import Button from "./Button";
-import { Card, CardTitle, CardContent } from "./Card";
-
-
+import { Card, CardContent } from "./Card";
 
 export type Product = {
   id: string;
   name: string;
-  characterType: "Vocaloid" | "UTAU";
-  company?: string;
-  voiceProvider?: string;
-  group?: string;
   description: string;
-  shortBio: string;
-  famousSongs: string[];
   price: number;
-  image?: string;
+  stock: number;
+  size?: string;
+  format?: string;
   tag?: string;
+  color?: string;
 };
 
 
 type CardsProps = {
   product: Product;
   onAddToCart?: (p: Product) => void;
-  onBuyNow?: (p: Product) => void;
 };
 
 const fmt = (n: number) =>
   new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(n);
 
-export default function Cards({ product, onAddToCart, onBuyNow }: CardsProps) {
+export default function Cards({ product, onAddToCart }: CardsProps) {
   return (
     <Card className="min-w-[260px] snap-center">
-      {product.image ? (
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-40 w-full object-cover"
-          loading="lazy"
-        />
-      ) : (
-        <div className="h-40 w-full bg-slate-800/40 grid place-items-center text-slate-400">
-          (Sin imagen)
-        </div>
-      )}
-
       <CardContent className="space-y-3">
         <p className="text-slate-300">{product.description}</p>
 

@@ -14,7 +14,7 @@ export type Filters = {
 type SortBarProps = {
   value: Filters;
   onChange: (value: Filters) => void;
-  products?: Product[]; // opcional, ya no lo usamos para generar estilos
+  products?: Product[];
 };
 
 export default function SortBar({ value, onChange }: SortBarProps) {

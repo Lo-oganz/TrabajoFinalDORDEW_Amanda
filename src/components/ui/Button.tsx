@@ -15,13 +15,15 @@ const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
     text-pink-400
     border-2 border-pink-500
     shadow-[0_0_12px_rgba(255,0,128,0.7)]
+    shadow-lg
     hover:text-black
     hover:bg-pink-500
-    hover:shadow-[0_0_22px_rgba(255,0,128,1)]
+    hover:shadow-[0_0_25px_rgba(255,0,128,1)]
     focus:ring-pink-500
     transform hover:scale-105 active:scale-95
   `,
 };
+
 
 const sizes: Record<NonNullable<ButtonProps["size"]>, string> = {
   sm: "h-9 px-4 text-sm",

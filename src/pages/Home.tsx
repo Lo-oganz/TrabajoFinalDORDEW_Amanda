@@ -9,7 +9,7 @@ import { styles } from "../data/styles.tsx";
 export default function HomePage() {
   return (
     <section className="space-y-6">
-      {/* Información general */}
+      {/* Información general sobre los estilos */}
       <div className="rounded-xl border-2 border-pink-400/30 bg-black/60 px-6 py-4 text-pink-100 leading-relaxed">
         <p>
           Estos 8 estilos son una introducción breve para el maravilloso mundo

@@ -1,4 +1,3 @@
-// src/data/products.ts
 import type { Product } from "../context/CartContext";
 
 export const products: Product[] = [

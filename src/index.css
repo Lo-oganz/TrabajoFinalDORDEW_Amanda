@@ -1,5 +1,9 @@
 /* src/index.css */
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@custom-variant hover (&:hover);
 
 /* opcional: estilos propios */
 html, body, #root { height: 100%; }
@@ -8,7 +12,6 @@ body {
   font-family: 'Arial Black, Franklin Gothic Medium, Futura Bold, sans-serif';
   letter-spacing: 1px;
 }
-
 
 :root {
   --pink-main: #FF008C;
